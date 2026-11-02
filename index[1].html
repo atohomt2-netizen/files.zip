@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap" rel="stylesheet">
+<title>Instituto Horizonte · Cursos en línea</title>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<nav><b>🎓 Instituto Horizonte</b><span><button class="ghost" onclick="show('inicio')">Inicio</button><button class="ghost" onclick="show('cursos')">Cursos</button></span></nav>
+<main>
+<section id="inicio">
+ <div id="hero"><div class="container"></div>
+  <div class="heroTxt"><h1>Instituto Horizonte</h1><p>Aprende desde cualquier lugar. Cursos en línea con contenido multimedia, evaluación y diploma de aprobación.</p><p><button onclick="show('cursos')">Ver cursos</button> <button class="ghost" onclick="show('registro')">Registrarme</button></p></div>
+ </div>
+</section>
+
+<section id="cursos" hidden><div class="wrap">
+ <h2>Cursos disponibles</h2>
+ <div class="grid">
+  <div class="card"><h3>Introducción a la Programación Web</h3><p>HTML, CSS y JavaScript desde cero. Incluye videos, lecturas y evaluación final.</p><p><small>⏱ 6 horas · Nivel básico</small></p><button onclick="show('registro')">Inscribirme</button></div>
+  <div class="card" style="opacity:.55"><h3>Bases de Datos con SQL</h3><p>Próximamente.</p></div>
+  <div class="card" style="opacity:.55"><h3>Diseño de Interfaces (UX/UI)</h3><p>Próximamente.</p></div>
+ </div>
+</div></section>
+
+<section id="registro" hidden><div class="wrap">
+ <h2>Registro del estudiante</h2>
+ <div class="wrapper"><div class="switch">
+  <input type="checkbox" class="toggle" id="tg"><label class="slider" for="tg"></label><span class="card-side"></span>
+  <div class="flip-card__inner">
+   <div class="flip-card__front"><div class="title">Registro</div>
+    <form id="fReg" class="flip-card__form">
+     <input class="flip-card__input" type="text" id="nom" placeholder="Nombre completo" required minlength="3">
+     <input class="flip-card__input" type="email" id="mail" placeholder="Correo electrónico" required>
+     <input class="flip-card__input" type="number" id="edad" placeholder="Edad" min="10" max="99" required>
+     <select class="flip-card__input" id="pais" required><option value="">País…</option><option>Guatemala</option><option>México</option><option>El Salvador</option><option>Honduras</option><option>Costa Rica</option><option>Otro</option></select>
+     <select class="flip-card__input" id="curso"><option>Introducción a la Programación Web</option></select>
+     <button class="flip-card__btn" type="submit">Registrarme</button>
+    </form></div>
+   <div class="flip-card__back"><div class="title">Ya tengo cuenta</div>
+    <form id="fLog" class="flip-card__form">
+     <input class="flip-card__input" type="email" id="mailLog" placeholder="Tu correo registrado" required>
+     <button class="flip-card__btn" type="submit">Ingresar</button>
+     <p id="logErr" style="color:#f66;margin:0;font-size:.9rem"></p>
+    </form></div>
+  </div></div></div>
+</div></section>
+
+<section id="datos" hidden><div class="wrap">
+ <h2>Registro exitoso ✅</h2>
+ <div class="card"><dl class="dl" id="dl"></dl></div>
+ <button onclick="show('contenido')">Acceder al curso →</button>
+</div></section>
+
+<section id="contenido" hidden><div class="wrap">
+ <h2>Introducción a la Programación Web</h2>
+ <div class="card"><b>Índice del curso</b>
+  <ul class="indice">
+   <li><a href="#" onclick="irA('t1');return false">1. ¿Cómo funciona la web?</a></li>
+   <li><a href="#" onclick="irA('t2');return false">2. HTML: la estructura</a></li>
+   <li><a href="#" onclick="irA('t3');return false">3. CSS: el diseño</a></li>
+   <li><a href="#" onclick="irA('t4');return false">4. JavaScript: la interacción</a></li>
+   <li><a href="#" onclick="irA('t5');return false">5. Publicar en un hosting</a></li>
+   <li><a href="#" onclick="irA('t6');return false">Recursos y enlaces</a></li>
+  </ul></div>
+
+ <div class="card" id="t1"><h3>1. ¿Cómo funciona la web?</h3>
+  <p>Un navegador (cliente) pide páginas a un servidor mediante el protocolo <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Overview" target="_blank" rel="noopener">HTTP</a>. El servidor responde con archivos <b>HTML</b>, <b>CSS</b> y <b>JavaScript</b>.</p>
+  <figure><svg viewBox="0 0 600 160" role="img" aria-label="Diagrama cliente-servidor"><rect width="600" height="160" fill="#222"/><rect x="30" y="40" width="140" height="80" rx="10" fill="#b22222"/><rect x="430" y="40" width="140" height="80" rx="10" fill="#008080"/><text x="100" y="88" fill="#fff" font-size="18" text-anchor="middle">Navegador</text><text x="500" y="88" fill="#fff" font-size="18" text-anchor="middle">Servidor</text><path d="M175 65h250M425 100H175" stroke="#ff6347" stroke-width="3"/><text x="300" y="55" fill="#ddd" font-size="14" text-anchor="middle">Petición HTTP</text><text x="300" y="122" fill="#ddd" font-size="14" text-anchor="middle">Respuesta HTML/CSS/JS</text></svg><figcaption>Figura 1. El navegador pide y el servidor responde.</figcaption></figure></div>
+
+ <div class="card" id="t2"><h3>2. HTML: la estructura</h3>
+  <p>HTML usa etiquetas para describir el contenido: <code>&lt;h1&gt;</code> títulos, <code>&lt;p&gt;</code> párrafos, <code>&lt;img&gt;</code> imágenes y <code>&lt;a href="..."&gt;</code> hipervínculos. Las etiquetas se anidan formando un árbol.</p>
+  <figure><svg viewBox="0 0 600 220" role="img" aria-label="Árbol de un documento HTML"><rect width="600" height="220" fill="#222"/><g fill="#b22222"><rect x="255" y="10" width="90" height="34" rx="6"/></g><g fill="#008080"><rect x="130" y="75" width="90" height="34" rx="6"/><rect x="380" y="75" width="90" height="34" rx="6"/></g><g fill="#556b2f"><rect x="290" y="150" width="70" height="34" rx="6"/><rect x="375" y="150" width="70" height="34" rx="6"/><rect x="460" y="150" width="70" height="34" rx="6"/><rect x="205" y="150" width="70" height="34" rx="6"/></g><path d="M300 44L175 75M300 44L425 75M425 109L240 150M425 109L325 150M425 109L410 150M425 109L495 150" stroke="#ff6347" stroke-width="2"/><g fill="#fff" font-size="15" text-anchor="middle"><text x="300" y="32">&lt;html&gt;</text><text x="175" y="97">&lt;head&gt;</text><text x="425" y="97">&lt;body&gt;</text><text x="240" y="172">&lt;h1&gt;</text><text x="325" y="172">&lt;p&gt;</text><text x="410" y="172">&lt;a&gt;</text><text x="495" y="172">&lt;img&gt;</text></g></svg><figcaption>Figura 2. Estructura de un documento HTML.</figcaption></figure>
+  <p>📚 <a href="https://developer.mozilla.org/es/docs/Learn/HTML" target="_blank" rel="noopener">MDN · Aprende HTML</a> · <a href="https://www.w3schools.com/html/" target="_blank" rel="noopener">W3Schools · HTML</a></p>
+  <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL0I-4WLYvbmhuGMuGJoynsx38XREFTXIw" title="Curso HTML5 y CSS3 en español" allowfullscreen loading="lazy"></iframe><small>🎬 Curso de HTML5 y CSS3 en español. ¿No carga? <a href="https://www.youtube.com/playlist?list=PL0I-4WLYvbmhuGMuGJoynsx38XREFTXIw" target="_blank" rel="noopener">Ábrelo en YouTube</a>.</small></div></div>
+
+ <div class="card" id="t3"><h3>3. CSS: el diseño</h3>
+  <p>CSS controla colores, tipografías y distribución. Ejemplo: <code>h1 { color: tomato; }</code>. Cada elemento es una caja con contenido, relleno (<i>padding</i>), borde y margen.</p>
+  <figure><svg viewBox="0 0 600 240" role="img" aria-label="Modelo de caja CSS"><rect width="600" height="240" fill="#222"/><rect x="150" y="15" width="300" height="210" rx="8" fill="#b22222" opacity=".85"/><rect x="185" y="45" width="230" height="150" fill="#d2b48c"/><rect x="215" y="72" width="170" height="96" fill="#008080"/><rect x="245" y="98" width="110" height="44" fill="#556b2f"/><g fill="#fff" font-size="14" text-anchor="middle"><text x="300" y="36">margin</text><text x="300" y="64" fill="#222">border</text><text x="300" y="90">padding</text><text x="300" y="125">contenido</text></g></svg><figcaption>Figura 3. El modelo de caja de CSS.</figcaption></figure>
+  <p>📚 <a href="https://developer.mozilla.org/es/docs/Learn/CSS" target="_blank" rel="noopener">MDN · Aprende CSS</a> · <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener">Guía de Flexbox</a></p>
+  <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/OXGznpKZ_sA" title="Curso de CSS" allowfullscreen loading="lazy"></iframe><small>🎬 Curso de CSS. ¿No carga? <a href="https://www.youtube.com/watch?v=OXGznpKZ_sA" target="_blank" rel="noopener">Ábrelo en YouTube</a>.</small></div></div>
+
+ <div class="card" id="t4"><h3>4. JavaScript: la interacción</h3>
+  <p>JavaScript (que no es lo mismo que Java) permite reaccionar a clics, validar formularios y modificar la página. Para mostrar mensajes de prueba se usa <code>console.log("Hola")</code>.</p>
+  <figure><svg viewBox="0 0 600 130" role="img" aria-label="Flujo de un evento en JavaScript"><rect width="600" height="130" fill="#222"/><g fill="#b22222"><rect x="20" y="40" width="150" height="50" rx="8"/></g><g fill="#008080"><rect x="225" y="40" width="150" height="50" rx="8"/></g><g fill="#556b2f"><rect x="430" y="40" width="150" height="50" rx="8"/></g><path d="M170 65h55M375 65h55" stroke="#ff6347" stroke-width="3"/><g fill="#fff" font-size="15" text-anchor="middle"><text x="95" y="70">Evento (clic)</text><text x="300" y="70">Función JS</text><text x="505" y="70">Cambia la página</text></g></svg><figcaption>Figura 4. Un evento ejecuta una función que modifica la página.</figcaption></figure>
+  <p>📚 <a href="https://developer.mozilla.org/es/docs/Learn/JavaScript" target="_blank" rel="noopener">MDN · Aprende JavaScript</a> · <a href="https://javascript.info/" target="_blank" rel="noopener">javascript.info</a></p>
+  <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/W6NZfCO5SIk" title="Tutorial de JavaScript" allowfullscreen loading="lazy"></iframe><small>🎬 Tutorial de JavaScript. ¿No carga? <a href="https://www.youtube.com/watch?v=W6NZfCO5SIk" target="_blank" rel="noopener">Ábrelo en YouTube</a>.</small></div></div>
+
+ <div class="card" id="t5"><h3>5. Publicar en un hosting</h3>
+  <p>El <i>hosting</i> es el servicio que guarda tus archivos y los entrega a quien visite tu dirección web (dominio). Hay opciones gratuitas como <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> y <a href="https://www.netlify.com/" target="_blank" rel="noopener">Netlify</a>.</p>
+  <figure><svg viewBox="0 0 600 120" role="img" aria-label="Del código al visitante"><rect width="600" height="120" fill="#222"/><g fill="#b22222"><rect x="15" y="35" width="120" height="50" rx="8"/></g><g fill="#008080"><rect x="160" y="35" width="120" height="50" rx="8"/></g><g fill="#a47cf3"><rect x="305" y="35" width="120" height="50" rx="8"/></g><g fill="#556b2f"><rect x="450" y="35" width="135" height="50" rx="8"/></g><path d="M135 60h25M280 60h25M425 60h25" stroke="#ff6347" stroke-width="3"/><g fill="#fff" font-size="14" text-anchor="middle"><text x="75" y="65">Tus archivos</text><text x="220" y="65">Hosting</text><text x="365" y="65">Dominio</text><text x="517" y="65">Visitante</text></g></svg><figcaption>Figura 5. Del código al visitante.</figcaption></figure></div>
+
+ <div class="card" id="t6"><h3>🔗 Recursos y enlaces</h3>
+  <ul class="indice">
+   <li><a href="https://developer.mozilla.org/es/" target="_blank" rel="noopener">MDN Web Docs en español</a>: la referencia oficial de la web.</li>
+   <li><a href="https://www.freecodecamp.org/espanol/" target="_blank" rel="noopener">freeCodeCamp en español</a>: ejercicios y cursos gratuitos.</li>
+   <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener">W3Schools</a>: ejemplos que puedes editar y probar.</li>
+   <li><a href="https://caniuse.com/" target="_blank" rel="noopener">Can I use</a>: compatibilidad de funciones en cada navegador.</li>
+   <li><a href="https://validator.w3.org/" target="_blank" rel="noopener">Validador HTML del W3C</a>: revisa si tu código es correcto.</li>
+  </ul></div>
+ <button onclick="startQuiz()">Ir a la evaluación →</button>
+</div></section>
+
+<section id="eval" hidden><div class="wrap">
+ <h2>Evaluación</h2><p>Responde las 6 preguntas. Se aprueba con 7.0 o más.</p>
+ <form id="fQ"></form>
+</div></section>
+
+<section id="res" hidden><div class="wrap">
+ <div class="noprint"><h2>Resultado</h2><div class="score" id="sc"></div><p id="msg"></p><div id="det"></div></div>
+ <div id="dip"></div>
+ <p class="noprint"><button id="pr" onclick="print()">🖨 Imprimir diploma</button> <button class="ghost" onclick="startQuiz()">Repetir evaluación</button> <button class="ghost" onclick="verBD()">Ver base de datos</button></p>
+ <pre id="bd" class="card noprint" hidden style="overflow:auto;font-size:.8rem"></pre>
+</div></section>
+</main>
+<div id="libro" hidden><div class="book"><div class="book__pg-shadow"></div><div class="book__pg"></div><div class="book__pg book__pg--2"></div><div class="book__pg book__pg--3"></div><div class="book__pg book__pg--4"></div><div class="book__pg book__pg--5"></div></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
